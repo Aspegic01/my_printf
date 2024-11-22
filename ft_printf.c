@@ -3,51 +3,60 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mlabrirh <mlabrirh@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mlabrirh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/21 11:30:55 by mlabrirh          #+#    #+#             */
-/*   Updated: 2024/11/22 11:18:02 by mlabrirh         ###   ########.fr       */
+/*   Created: 2024/11/22 23:20:48 by mlabrirh          #+#    #+#             */
+/*   Updated: 2024/11/22 23:20:56 by mlabrirh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-
-int ft_printf(const char *format, ...)
+static int	check_type(const char *input, void *arg)
 {
+	int	i;
 
-	va_list list;
-	va_start(list,format);
-	int i = 0;
-	if (format[i] == '%' && format[i + 1] == '\0')
-		return (-1);
-	while (format[i])
+	i = 0;
+	if (*input == 'c')
+		i += ft_putchar((int)arg);
+	else if (*input == 's')
+		i += ft_putstr((char *)arg);
+	else if (*input == 'p')
+		i += ft_printptr((unsigned long)arg);
+	else if (*input == 'd')
+		i += ft_putnbr((int)arg);
+	else if (*input == 'i')
+		i += ft_putnbr((int)arg);
+	else if (*input == 'u')
+		i += ft_putunbr((unsigned int)arg);
+	else if (*input == 'x')
+		i += ft_puthexa((unsigned int)arg);
+	else if (*input == 'X')
+		i += ft_putuhexa((unsigned int)arg);
+	return (i);
+}
+
+int	ft_printf(const char *input, ...)
+{
+	va_list			args;
+	unsigned int	i;
+
+	i = 0;
+	va_start(args, input);
+	while (*input != '\0')
 	{
-		if (format[i] == '%')
+		if (*input == '%')
 		{
-			i++;
-			if (format[i] == '%' && format[i + 1])
-				ft_putchar('%');
-			else if (format[i] == '%')
-				i++;
-			else if (format[i] == 's')
-				ft_putstr(va_arg(list,char *));
-			else if (format[i] == 'c')
-				ft_putchar(va_arg(list,int));
-			else if (format[i] == 'd' || format[i] == 'i')
-				ft_putnbr(va_arg(list,int));
-			else if (format[i] == 'x')
-				ft_puthexa(va_arg(list,unsigned int));
-			else if (format[i] == 'p')
-				ft_printptr(va_arg(list,unsigned long int));
-			else if (format[i] == 'u')
-				ft_putunbr(va_arg(list,unsigned int));
-			else if (format[i] == 'X')
-				ft_putuhexa(va_arg(list,unsigned int));
+			input++;
+			if (ft_strchr("cspdiuxX", *input))
+				i += check_type(input, va_arg(args, void *));
+			else if (*input == '%')
+				i += ft_putchar('%');
 		}
 		else
-			ft_putchar(format[i]);
-		i++;   
+			i = i + ft_putchar(*input);
+		input++;
 	}
-	return i;
+	va_end(args);
+	return (i);
 }

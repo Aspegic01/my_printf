@@ -6,13 +6,13 @@
 /*   By: mlabrirh <mlabrirh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 11:25:18 by mlabrirh          #+#    #+#             */
-/*   Updated: 2024/11/21 12:00:26 by mlabrirh         ###   ########.fr       */
+/*   Updated: 2024/11/22 23:06:42 by mlabrirh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-void     ft_putnbr(int nb)
+int     ft_putnbr(int nb)
 {
     if (nb == -2147483648)
     {
@@ -31,5 +31,5 @@ void     ft_putnbr(int nb)
         ft_putnbr(nb % 10);
     }
     else
-        ft_putchar(nb + 48);
+        return ft_putchar(nb + 48);
 }

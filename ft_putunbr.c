@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putunbr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mlabrirh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mlabrirh <mlabrirh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 20:51:11 by mlabrirh          #+#    #+#             */
-/*   Updated: 2024/11/22 08:56:33 by mlabrirh         ###   ########.fr       */
+/*   Updated: 2024/11/22 23:07:02 by mlabrirh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-void	ft_putunbr(unsigned int nb)
+int	ft_putunbr(unsigned int nb)
 {
 	if (nb == 0)
 	{
@@ -25,5 +25,5 @@ void	ft_putunbr(unsigned int nb)
 		ft_putunbr(nb % 10);
 	}
 	else
-		ft_putchar(nb + 48);
+		return ft_putchar(nb + 48);
 }

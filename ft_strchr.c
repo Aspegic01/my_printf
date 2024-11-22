@@ -1,18 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mlabrirh <mlabrirh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/21 11:24:12 by mlabrirh          #+#    #+#             */
-/*   Updated: 2024/11/22 23:02:18 by mlabrirh         ###   ########.fr       */
+/*   Created: 2024/10/24 18:52:55 by mlabrirh          #+#    #+#             */
+/*   Updated: 2024/11/22 22:57:59 by mlabrirh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int ft_putchar(char c)
+char	*ft_strchr(const char *s, int c)
 {
-    return (write(1, &c, 1));
+	size_t	i;
+
+	i = 0;
+	while (s[i] != 0)
+	{
+		if (s[i] == (unsigned char)c)
+		{
+			return ((char *)(s + i));
+		}
+		i++;
+	}
+	if (s[i] == (unsigned char)c)
+	{
+		return ((char *)(s + i));
+	}
+	return (NULL);
 }

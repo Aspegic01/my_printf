@@ -6,13 +6,13 @@
 /*   By: mlabrirh <mlabrirh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 11:43:07 by mlabrirh          #+#    #+#             */
-/*   Updated: 2024/11/22 09:26:53 by mlabrirh         ###   ########.fr       */
+/*   Updated: 2024/11/22 23:05:18 by mlabrirh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-void	ft_puthexa(unsigned int n)
+int	ft_puthexa(unsigned int n)
 {
 	char	hexa[16] = "0123456789abcdef";
 
@@ -21,4 +21,5 @@ void	ft_puthexa(unsigned int n)
 		ft_puthexa(n / 16);
 	}
 	ft_putchar(hexa[n % 16]);
+	return (n);
 }
