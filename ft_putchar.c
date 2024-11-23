@@ -6,13 +6,13 @@
 /*   By: mlabrirh <mlabrirh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 11:24:12 by mlabrirh          #+#    #+#             */
-/*   Updated: 2024/11/23 10:45:39 by mlabrirh         ###   ########.fr       */
+/*   Updated: 2024/11/23 20:20:20 by mlabrirh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_putchar(char c)
+int	ft_putchar(char c)
 {
-    return (write(1, &c, 1));
+	return (write(1, &c, 1));
 }

@@ -22,4 +22,5 @@ fclean:	clean
 
 re:	fclean all
 
-.PHONY:	all bonus clean
+.PHONY:	clean
+.SECONDARY: $(OFILES)

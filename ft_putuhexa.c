@@ -6,7 +6,7 @@
 /*   By: mlabrirh <mlabrirh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 09:17:35 by mlabrirh          #+#    #+#             */
-/*   Updated: 2024/11/23 11:42:06 by mlabrirh         ###   ########.fr       */
+/*   Updated: 2024/11/23 20:30:38 by mlabrirh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int	ft_putuhexa(unsigned int n)
 {
-//	i//char	hexa[16];
-	int count;
-	char	hexa[16] = "0123456789ABCDEF";
+	int		count;
+	char	*hexa;
 
+	hexa = "0123456789ABCDEF";
 	count = 0;
 	if (n >= 16)
 	{

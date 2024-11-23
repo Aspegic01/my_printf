@@ -6,7 +6,7 @@
 /*   By: mlabrirh <mlabrirh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 23:20:48 by mlabrirh          #+#    #+#             */
-/*   Updated: 2024/11/23 11:25:55 by mlabrirh         ###   ########.fr       */
+/*   Updated: 2024/11/23 20:31:59 by mlabrirh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	check_type(const char *format, ...)
 {
-	int	i;
+	int		i;
 	va_list	args;
 
 	va_start(args, format);
@@ -26,7 +26,7 @@ static int	check_type(const char *format, ...)
 	else if (*format == 'p')
 		i += ft_printptr(va_arg(args, unsigned long long));
 	else if (*format == 'd')
-		i += ft_putnbr(va_arg(args,int));
+		i += ft_putnbr(va_arg(args, int));
 	else if (*format == 'i')
 		i += ft_putnbr(va_arg(args, int));
 	else if (*format == 'u')

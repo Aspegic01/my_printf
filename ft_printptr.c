@@ -6,7 +6,7 @@
 /*   By: mlabrirh <mlabrirh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 13:39:29 by mlabrirh          #+#    #+#             */
-/*   Updated: 2024/11/23 12:56:33 by mlabrirh         ###   ########.fr       */
+/*   Updated: 2024/11/23 20:33:35 by mlabrirh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,17 +47,15 @@ int	ft_printptr(unsigned long long ptr)
 {
 	int	len;
 
-	write(1, "0x", 2);
-	len = 2;
+	len = 0;
 	if (ptr == 0)
 	{
-		write(1, "0", 1);
-		len = len + 1;
+		write(1, "(nil)", 5);
+		return (5);
 	}
-	else
-	{
-		ft_putptr(ptr);
-		len = len + ft_ptrlen(ptr);
-	}
+	write(1, "0x", 2);
+	len = 2;
+	ft_putptr(ptr);
+	len = len + ft_ptrlen(ptr);
 	return (len);
 }
