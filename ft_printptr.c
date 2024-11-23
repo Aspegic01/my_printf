@@ -33,6 +33,8 @@ static int	ft_ptrlen(unsigned long long ptr)
 	int	len;
 
 	len = 0;
+	if (ptr == 0)
+		return (1);
 	while (ptr != 0)
 	{
 		len++;
