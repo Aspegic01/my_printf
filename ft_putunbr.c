@@ -6,24 +6,32 @@
 /*   By: mlabrirh <mlabrirh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 20:51:11 by mlabrirh          #+#    #+#             */
-/*   Updated: 2024/11/22 23:07:02 by mlabrirh         ###   ########.fr       */
+/*   Updated: 2024/11/23 11:57:58 by mlabrirh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
-int	ft_putunbr(unsigned int nb)
+int     ft_putunbr(unsigned int nb)
 {
-	if (nb == 0)
-	{
-		ft_putchar('0');
-		return ;
-	}
-	if (nb > 9)
-	{
-		ft_putunbr(nb / 10);
-		ft_putunbr(nb % 10);
-	}
-	else
-		return ft_putchar(nb + 48);
+    //long nb = (long)n;
+    int count;
+
+    count = 0;
+    if (nb < 0)
+    {
+        ft_putchar('-');
+        nb *= -1;
+        count++;
+    }
+    if (nb > 9)
+    {
+        count += ft_putnbr(nb / 10);
+        count += ft_putnbr(nb % 10);
+        //count++;
+    }
+    else
+       count += ft_putchar(nb + 48);
+       
+    return (count);
 }

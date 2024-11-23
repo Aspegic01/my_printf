@@ -6,11 +6,11 @@
 /*   By: mlabrirh <mlabrirh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 11:24:12 by mlabrirh          #+#    #+#             */
-/*   Updated: 2024/11/22 23:02:18 by mlabrirh         ###   ########.fr       */
+/*   Updated: 2024/11/23 10:45:39 by mlabrirh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int ft_putchar(char c)
 {

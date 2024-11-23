@@ -6,11 +6,11 @@
 /*   By: mlabrirh <mlabrirh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 18:52:55 by mlabrirh          #+#    #+#             */
-/*   Updated: 2024/11/22 22:57:59 by mlabrirh         ###   ########.fr       */
+/*   Updated: 2024/11/23 10:46:03 by mlabrirh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 char	*ft_strchr(const char *s, int c)
 {

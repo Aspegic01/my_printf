@@ -6,18 +6,18 @@
 /*   By: mlabrirh <mlabrirh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 13:39:29 by mlabrirh          #+#    #+#             */
-/*   Updated: 2024/11/21 20:34:21 by mlabrirh         ###   ########.fr       */
+/*   Updated: 2024/11/23 12:56:33 by mlabrirh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
-static void	putptr(unsigned long long ptr)
+static void	ft_putptr(unsigned long long ptr)
 {
 	if (ptr > 15)
 	{
-		putptr(ptr / 16);
-		putptr(ptr % 16);
+		ft_putptr(ptr / 16);
+		ft_putptr(ptr % 16);
 	}
 	else
 	{
@@ -28,7 +28,7 @@ static void	putptr(unsigned long long ptr)
 	}
 }
 
-static int	ptrlen(unsigned long long ptr)
+static int	ft_ptrlen(unsigned long long ptr)
 {
 	int	len;
 
@@ -54,8 +54,8 @@ int	ft_printptr(unsigned long long ptr)
 	}
 	else
 	{
-		putptr(ptr);
-		len = len + ptrlen(ptr);
+		ft_putptr(ptr);
+		len = len + ft_ptrlen(ptr);
 	}
 	return (len);
 }

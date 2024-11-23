@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthexa.c                                       :+:      :+:    :+:   */
+/*   c.c                                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mlabrirh <mlabrirh@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mlabrirh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/21 11:43:07 by mlabrirh          #+#    #+#             */
-/*   Updated: 2024/11/23 11:41:26 by mlabrirh         ###   ########.fr       */
+/*   Created: 2024/11/23 12:50:54 by mlabrirh          #+#    #+#             */
+/*   Updated: 2024/11/23 12:51:14 by mlabrirh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_puthexa(unsigned int n)
+int main()
 {
-	int count;
-	char	hexa[16] = "0123456789abcdef";
-
-	count = 0;
-	if (n >= 16)
-	{
-		count += ft_puthexa(n / 16);
-	}
-	count += ft_putchar(hexa[n % 16]);
-	return (count);
+	int *p = NULL;
+	ft_printf("%p",p);
+	printf("\n%p",p);
 }
+
