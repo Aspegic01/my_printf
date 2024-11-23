@@ -15,17 +15,14 @@
 int	ft_putstr(char *s)
 {
 	int	i;
-	int	count;
 
-	count = 0;
-	if (!s)
-		return (-1);
 	i = 0;
+	if (!s)
+		s = "(null)";
 	while (s[i])
 	{
 		write(1, &s[i], 1);
 		i++;
-		count++;
 	}
-    return (count);
+	return (i);
 }
