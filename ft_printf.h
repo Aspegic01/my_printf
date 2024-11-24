@@ -6,7 +6,7 @@
 /*   By: mlabrirh <mlabrirh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 11:21:46 by mlabrirh          #+#    #+#             */
-/*   Updated: 2024/11/23 20:19:41 by mlabrirh         ###   ########.fr       */
+/*   Updated: 2024/11/24 11:54:16 by mlabrirh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,5 @@ int		ft_putunbr(unsigned int nb);
 int		ft_printptr(unsigned long long ptr);
 int		ft_printf(const char *formats, ...);
 int		ft_putuhexa(unsigned int n);
-char	*ft_strchr(const char *s, int c);
 
 #endif

@@ -6,35 +6,36 @@
 /*   By: mlabrirh <mlabrirh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 23:20:48 by mlabrirh          #+#    #+#             */
-/*   Updated: 2024/11/23 20:31:59 by mlabrirh         ###   ########.fr       */
+/*   Updated: 2024/11/24 13:19:22 by mlabrirh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	check_type(const char *format, ...)
+int	ft_formatcheck(va_list args, const char c)
 {
-	int		i;
-	va_list	args;
+	int	i;
 
-	va_start(args, format);
 	i = 0;
-	if (*format == 'c')
+	if (c == 'c')
 		i += ft_putchar(va_arg(args, int));
-	else if (*format == 's')
+	else if (c == 's')
 		i += ft_putstr(va_arg(args, char *));
-	else if (*format == 'p')
+	else if (c == 'p')
 		i += ft_printptr(va_arg(args, unsigned long long));
-	else if (*format == 'd')
+	else if (c == 'd' || c == 'i')
 		i += ft_putnbr(va_arg(args, int));
-	else if (*format == 'i')
-		i += ft_putnbr(va_arg(args, int));
-	else if (*format == 'u')
+	else if (c == 'u')
 		i += ft_putunbr(va_arg(args, unsigned int));
-	else if (*format == 'x')
+	else if (c == 'x')
 		i += ft_puthexa(va_arg(args, unsigned int));
-	else if (*format == 'X')
+	else if (c == 'X')
 		i += ft_putuhexa(va_arg(args, unsigned int));
+	else
+	{
+		i += ft_putchar('%');
+		i += ft_putchar(c);
+	}
 	return (i);
 }
 
@@ -42,22 +43,26 @@ int	ft_printf(const char *formats, ...)
 {
 	va_list			args;
 	unsigned int	i;
+	unsigned int	j;
 
 	i = 0;
+	j = 0;
 	va_start(args, formats);
-	while (*formats != '\0')
+	if (formats == NULL)
+		return (-1);
+	while (formats[j] != '\0')
 	{
-		if (*formats == '%')
+		if (formats[j] == '%' && formats[j + 1] != '\0')
 		{
-			formats++;
-			if (ft_strchr("cspdiuxX", *formats))
-				i += check_type(formats, va_arg(args, void *));
-			else if (*formats == '%')
+			j++;
+			if (formats[j] != '%')
+				i += ft_formatcheck(args, formats[j]);
+			else
 				i += ft_putchar('%');
 		}
-		else
-			i = i + ft_putchar(*formats);
-		formats++;
+		else if (formats[j] != '%')
+			i += ft_putchar(formats[j]);
+		j++;
 	}
 	va_end(args);
 	return (i);
